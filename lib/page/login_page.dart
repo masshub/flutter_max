@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_max/common/styles/max_colors.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'dart:async';
 
 ///
 /// Created by Maker on 2019/1/11.
@@ -15,6 +17,7 @@ class _LoginState extends State<Login> {
   final loginFormKey = GlobalKey<FormState>();
   String account, password;
   bool autoValidate = false;
+  Color loginColor = Colors.grey[400];
 
   String _validatorAccount(String value) {
     if (value.isEmpty) {
@@ -27,23 +30,67 @@ class _LoginState extends State<Login> {
     if (value.isEmpty) {
       return '密码不能为空';
     }
+
+    if (value.length == 6) {
+      setState(() {
+        loginColor = Colors.deepOrange;
+      });
+    }
     return null;
   }
 
   void _saveLoginInformation() {
+    showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+          return new Material(
+              color: Colors.transparent,
+              child: WillPopScope(
+                onWillPop: () => new Future.value(false),
+                child: Center(
+                  child: new Container(
+                    width: 200.0,
+                    height: 200.0,
+                    padding: new EdgeInsets.all(4.0),
+                    decoration: new BoxDecoration(
+                      color: Colors.transparent,
+                      //用一个BoxDecoration装饰器提供背景图片
+                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                    ),
+                    child: new Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        new Container(
+                            child: SpinKitCircle(
+                          color: Colors.lightBlueAccent,
+                          size: 70.0,
+                        )),
+                      ],
+                    ),
+                  ),
+                ),
+              ));
+        });
+
 
     if (loginFormKey.currentState.validate()) {
       loginFormKey.currentState.save();
       debugPrint('account : $account');
       debugPrint('password : $password');
       if (account == 'max' && password == '123456') {
-        Navigator.pushNamed(context, '/');
+        Timer(Duration(seconds: 1), _event ); //关闭对话框
+
       } else {}
     } else {
       setState(() {
         autoValidate = true;
       });
     }
+  }
+  void _event() {
+    Navigator.pop(context);
+    Navigator.pushNamed(context, '/');
   }
 
   TextEditingController _accountController = TextEditingController();
@@ -94,8 +141,8 @@ class _LoginState extends State<Login> {
                           TextFormField(
                             controller: _accountController,
                             keyboardType: TextInputType.phone,
-                            onEditingComplete: () =>
-                                FocusScope.of(context).requestFocus(secondTextFieldNode),
+                            onEditingComplete: () => FocusScope.of(context)
+                                .requestFocus(secondTextFieldNode),
                             maxLength: 11,
                             maxLines: 1,
                             decoration: InputDecoration(
@@ -109,9 +156,6 @@ class _LoginState extends State<Login> {
                               contentPadding:
                                   EdgeInsets.only(top: 26.0, bottom: 4.0),
                             ),
-                            cursorColor: Colors.lightBlueAccent,
-                            cursorRadius: Radius.circular(16.0),
-                            cursorWidth: 16.0,
                             autovalidate: autoValidate,
                             onSaved: (value) {
                               account = value;
@@ -166,7 +210,8 @@ class _LoginState extends State<Login> {
                       Container(
                         width: double.infinity,
                         child: RaisedButton(
-                            color: Colors.deepOrange,
+                            color: MaxColors.primarySwatch,
+                            disabledColor: loginColor,
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(4.0))),
@@ -176,20 +221,19 @@ class _LoginState extends State<Login> {
                             ),
                             elevation: 0.0,
                             onPressed: () {
-
                               _saveLoginInformation();
                             }),
                       ),
-
                     ],
                   ),
                 ),
               ),
             ),
-            SpinKitCircle(color: Colors.deepOrange),
           ],
         ),
       ),
     );
   }
+
+
 }
