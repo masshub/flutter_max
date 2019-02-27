@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 ///
 
 class Splash extends StatefulWidget {
+  static final String mName = 'splash';
   @override
   _SplashState createState() => _SplashState();
 }

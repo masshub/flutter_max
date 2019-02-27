@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_max/common/styles/max_colors.dart';
 import 'package:flutter_max/common/utils/common_utils.dart';
+import 'package:flutter_max/common/utils/navigator_utils.dart';
+import 'package:flutter_max/page/NewsListPage.dart';
 import 'package:flutter_max/page/drawer_page.dart';
 
 
@@ -10,6 +11,7 @@ import 'package:flutter_max/page/drawer_page.dart';
 ///
 
 class HomePage extends StatefulWidget {
+  static final String mName = 'home';
   HomePage({Key key, this.title}) : super(key: key);
 
   final String title;
@@ -50,28 +52,7 @@ class _HomePageState extends State<HomePage> {
           centerTitle: true,
         ),
         drawer: DrawerPage(),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              InkWell(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'HomePage',
-                      style: TextStyle(fontSize: 33.0),
-                    ),
-
-                  ],
-                ),
-//                onTap: Navigator.of(context).pushNamed(routeName),
-              ),
-
-            ],
-          ),
-        ),
+        body: NewsListPage(),
         // This trailing comma makes auto-formatting nicer for build methods.
       ),
     );

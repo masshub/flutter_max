@@ -9,6 +9,7 @@ import 'dart:async';
 ///
 
 class Login extends StatefulWidget {
+  static final String mName = 'login';
   @override
   _LoginState createState() => _LoginState();
 }

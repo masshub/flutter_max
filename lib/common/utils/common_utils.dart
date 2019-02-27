@@ -1,14 +1,21 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_max/common/localizations/default_localizations.dart';
 import 'package:flutter_max/common/rerdux/locale_reducer.dart';
 import 'package:flutter_max/common/rerdux/maxBase.dart';
 import 'package:flutter_max/common/rerdux/themeReducer.dart';
 import 'package:flutter_max/common/styles/max_colors.dart';
 import 'package:flutter_max/common/styles/max_strings.dart';
+import 'package:flutter_max/common/utils/navigator_utils.dart';
 import 'dart:async';
 
 import 'package:flutter_max/widget/max_flex_button.dart';
+import 'package:flutter_max/widget/max_web_view.dart';
 import 'package:redux/redux.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 ///
 /// Created by Maker on 2019/2/25.
@@ -20,7 +27,7 @@ class CommonUtils {
   /**
    * 切换语言
    */
-  static changeLocale(Store<MaxState> store, int index) {
+  static changeLocale(Store<MaxState> store, int index) async {
     Locale locale = store.state.platformLocale;
     switch (index) {
       case 1:
@@ -104,4 +111,37 @@ class CommonUtils {
           );
         });
   }
+
+
+  static launchOutUrl(BuildContext context,String url) async {
+    if(await canLaunch(url)) {
+      await launch(url);
+    } else {
+      Fluttertoast.showToast(msg: CommonUtils.getLocale(context).option_web_launcher_error + ": " + url);
+    }
+  }
+
+  ///
+  /// 复制数据
+  ///
+  static copy(BuildContext context,String data) {
+    if(data != null) {
+      Clipboard.setData(ClipboardData(text: data));
+      Fluttertoast.showToast(msg: CommonUtils.getLocale(context).option_share_copy_success);
+    }
+
+  }
+
+
+
+  static void lannchWebView(BuildContext context,String url,String title){
+    if(url.startsWith('http') || url.startsWith('https')) {
+      NavigatorUtils.showWebView(context, url, title);
+    } else {
+      NavigatorUtils.showWebView(context, Uri.dataFromString(url,mimeType: 'text/html',encoding: Encoding.getByName('utf-8')).toString(), title);
+    }
+  }
+
+
+
 }

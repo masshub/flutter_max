@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Describe:
 ///
 
-class LocalStorage {
+class LocaleStorage {
   static save(String key,value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString(key, value);

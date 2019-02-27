@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_max/common/local/local_storage.dart';
+import 'package:flutter_max/common/locale/locale_storage.dart';
 import 'package:flutter_max/common/rerdux/maxBase.dart';
 import 'package:flutter_max/common/utils/common_utils.dart';
 import 'package:redux/redux.dart';
@@ -29,7 +29,7 @@ class _DrawerPageState extends State<DrawerPage> {
 
     CommonUtils.showCommitOptionDialog(context, list, (index) {
       CommonUtils.pushTheme(store, index);
-      LocalStorage.save(Config.THEME_COLOR, index.toString());
+      LocaleStorage.save(Config.THEME_COLOR, index.toString());
     }, colorList: CommonUtils.getThemeListColor());
   }
 
@@ -41,7 +41,7 @@ class _DrawerPageState extends State<DrawerPage> {
     ];
     CommonUtils.showCommitOptionDialog(context, list, (index) {
       CommonUtils.changeLocale(store, index);
-      LocalStorage.save(Config.LOCALE, index.toString());
+      LocaleStorage.save(Config.LOCALE, index.toString());
     }, height: 150.0);
   }
 
