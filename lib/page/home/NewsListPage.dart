@@ -4,7 +4,7 @@ import 'package:flutter_max/common/utils/common_utils.dart';
 import 'package:flutter_max/common/utils/navigator_utils.dart';
 import 'package:flutter_max/http/NetUtils.dart';
 import 'package:flutter_max/http/API.dart';
-import 'package:flutter_max/page/NewsDetailPage.dart';
+import 'package:flutter_max/page/home/NewsDetailPage.dart';
 import 'package:flutter_max/widget/CommonEndLine.dart';
 
 import 'dart:convert';

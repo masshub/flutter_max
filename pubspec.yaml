@@ -32,6 +32,7 @@ dependencies:
   dio: 2.0.14
   connectivity: 0.4.2
   event_bus: 1.0.3
+  flutter_gallery_assets: 0.1.6
 
 
 dev_dependencies:
@@ -56,6 +57,37 @@ flutter:
     - assets/images/user.png
     - assets/images/ic_comment.png
     - assets/images/ic_img_default.jpg
+    - assets/images/01.jpg
+    - assets/images/02.jpg
+    - assets/images/03.jpg
+    - assets/images/04.jpg
+    - assets/images/05.jpg
+    - assets/images/06.jpg
+    - assets/images/07.jpg
+    - assets/images/08.jpg
+    - assets/images/09.jpg
+    - assets/images/10.jpg
+    - assets/images/11.jpg
+    - assets/images/12.jpg
+    - assets/images/13.jpg
+    - assets/images/14.jpg
+    - assets/images/15.jpg
+    - assets/images/16.jpg
+    - assets/images/17.jpg
+    - assets/images/19.jpg
+    - assets/images/20.jpg
+    - assets/images/21.jpg
+    - assets/images/22.jpg
+    - assets/images/23.jpg
+    - assets/images/24.jpg
+    - assets/images/25.jpg
+    - assets/images/26.jpg
+    - assets/images/27.jpg
+    - assets/images/28.jpg
+    - assets/images/29.jpg
+    - assets/images/30.jpg
+    - assets/images/31.jpg
+    - assets/images/32.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

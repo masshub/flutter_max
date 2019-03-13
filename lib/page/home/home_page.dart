@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_max/common/utils/common_utils.dart';
 import 'package:flutter_max/common/utils/navigator_utils.dart';
-import 'package:flutter_max/page/NewsListPage.dart';
+import 'package:flutter_max/page/demo/gridview/girdview_extend_demo.dart';
+import 'package:flutter_max/page/home/NewsListPage.dart';
 import 'package:flutter_max/page/drawer_page.dart';
 
 
@@ -48,11 +49,13 @@ class _HomePageState extends State<HomePage> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text(widget.title??'home'),
           centerTitle: true,
         ),
         drawer: DrawerPage(),
-        body: NewsListPage(),
+        body: Container(
+          child: GridViewDemo(),
+        ),
         // This trailing comma makes auto-formatting nicer for build methods.
       ),
     );

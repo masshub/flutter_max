@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_max/common/styles/max_colors.dart';
+import 'package:flutter_max/widget/bottom_circle_cliper.dart';
+import 'package:flutter_max/widget/circle_cliper.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'dart:async';
+
+import 'package:fluttertoast/fluttertoast.dart';
 
 ///
 /// Created by Maker on 2019/1/11.
@@ -10,6 +14,7 @@ import 'dart:async';
 
 class Login extends StatefulWidget {
   static final String mName = 'login';
+
   @override
   _LoginState createState() => _LoginState();
 }
@@ -65,7 +70,7 @@ class _LoginState extends State<Login> {
                         new Container(
                             child: SpinKitCircle(
                           color: Colors.lightBlueAccent,
-                          size: 70.0,
+                          size: 50.0,
                         )),
                       ],
                     ),
@@ -74,21 +79,28 @@ class _LoginState extends State<Login> {
               ));
         });
 
-
     if (loginFormKey.currentState.validate()) {
       loginFormKey.currentState.save();
       debugPrint('account : $account');
       debugPrint('password : $password');
       if (account == 'max' && password == '123456') {
-        Timer(Duration(seconds: 1), _event ); //关闭对话框
+        Timer(Duration(seconds: 2), _event); // 关闭加载框
+      } else {
+        Timer(Duration(seconds: 2), _error); // 关闭加载框
 
-      } else {}
+      }
     } else {
       setState(() {
         autoValidate = true;
       });
     }
   }
+
+  void _error() {
+    Navigator.pop(context);
+    Fluttertoast.showToast(msg: '账号或密码错误，请重新输入');
+  }
+
   void _event() {
     Navigator.pop(context);
     Navigator.pushNamed(context, '/');
@@ -113,128 +125,115 @@ class _LoginState extends State<Login> {
       key: loginFormKey,
       child: Container(
         color: Colors.lightBlueAccent,
-        child: Stack(
-          alignment: Alignment.center,
-          children: <Widget>[
-            Align(
-              alignment: Alignment.topCenter,
-              child: Image.asset(
-                'assets/images/logo.jpg',
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            SizedBox(
-              height: 300.0,
-              child: Card(
-                color: Colors.white,
-                elevation: 10.0,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
-                margin: EdgeInsets.only(right: 46.0, left: 46.0),
-                child: Padding(
-                  padding: EdgeInsets.all(16.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+        alignment: Alignment.center,
+        child: SizedBox(
+          height: 300.0,
+          child: Card(
+            color: Colors.white,
+            elevation: 10.0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(10.0))),
+            margin: EdgeInsets.only(right: 46.0, left: 46.0),
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Stack(
+                    alignment: Alignment.centerRight,
                     children: <Widget>[
-                      Stack(
-                        alignment: Alignment.centerRight,
-                        children: <Widget>[
-                          TextFormField(
-                            controller: _accountController,
-                            keyboardType: TextInputType.phone,
-                            onEditingComplete: () => FocusScope.of(context)
-                                .requestFocus(secondTextFieldNode),
-                            maxLength: 11,
-                            maxLines: 1,
-                            decoration: InputDecoration(
-                              labelText: '手机号码',
-                              labelStyle: TextStyle(
-                                  fontSize: 14, color: Colors.grey[600]),
-                              hintText: '请输入手机号码',
-                              hintStyle: TextStyle(
-                                  fontSize: 12, color: Colors.grey[400]),
-                              helperText: '',
-                              contentPadding:
-                                  EdgeInsets.only(top: 26.0, bottom: 4.0),
-                            ),
-                            autovalidate: autoValidate,
-                            onSaved: (value) {
-                              account = value;
-                            },
-                            validator: _validatorAccount,
-                          ),
-                          IconButton(
-                              onPressed: _clearAccount,
-                              icon: Icon(
-                                Icons.cancel,
-                                color: Colors.grey[400],
-                              )),
-                        ],
+                      TextFormField(
+                        controller: _accountController,
+                        keyboardType: TextInputType.phone,
+                        onEditingComplete: () => FocusScope.of(context)
+                            .requestFocus(secondTextFieldNode),
+                        maxLength: 11,
+                        maxLines: 1,
+                        decoration: InputDecoration(
+                          labelText: '手机号码',
+                          labelStyle:
+                              TextStyle(fontSize: 14, color: Colors.grey[600]),
+                          hintText: '请输入手机号码',
+                          hintStyle:
+                              TextStyle(fontSize: 12, color: Colors.grey[400]),
+                          helperText: '',
+                          contentPadding:
+                              EdgeInsets.only(top: 26.0, bottom: 4.0),
+                        ),
+                        autovalidate: autoValidate,
+                        onSaved: (value) {
+                          account = value;
+                        },
+                        validator: _validatorAccount,
                       ),
-                      Stack(
-                        alignment: Alignment.centerRight,
-                        children: <Widget>[
-                          TextFormField(
-                            controller: _passwordController,
-                            focusNode: secondTextFieldNode,
-                            keyboardType: TextInputType.text,
-                            maxLines: 1,
-                            decoration: InputDecoration(
-                              labelText: '密码',
-                              labelStyle: TextStyle(
-                                  fontSize: 14, color: Colors.grey[600]),
-                              hintText: '请输入密码',
-                              hintStyle: TextStyle(
-                                  fontSize: 12, color: Colors.grey[400]),
-                              helperText: '',
-                              contentPadding:
-                                  EdgeInsets.only(top: 6.0, bottom: 10.0),
-                            ),
-                            autovalidate: autoValidate,
-                            obscureText: true,
-                            validator: _validatorPassword,
-                            onSaved: (value) {
-                              password = value;
-                            },
-                          ),
-                          IconButton(
-                              onPressed: _clearPassword,
-                              icon: Icon(
-                                Icons.cancel,
-                                color: Colors.grey[400],
-                              )),
-                        ],
-                      ),
-                      SizedBox(
-                        height: 16.0,
-                      ),
-                      Container(
-                        width: double.infinity,
-                        child: RaisedButton(
-                            color: MaxColors.primarySwatch,
-                            disabledColor: loginColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(4.0))),
-                            child: Text(
-                              '登陆',
-                              style: TextStyle(color: Colors.white),
-                            ),
-                            elevation: 0.0,
-                            onPressed: () {
-                              _saveLoginInformation();
-                            }),
-                      ),
+                      IconButton(
+                          onPressed: _clearAccount,
+                          icon: Icon(
+                            Icons.cancel,
+                            color: Colors.grey[400],
+                          )),
                     ],
                   ),
-                ),
+                  Stack(
+                    alignment: Alignment.centerRight,
+                    children: <Widget>[
+                      TextFormField(
+                        controller: _passwordController,
+                        focusNode: secondTextFieldNode,
+                        keyboardType: TextInputType.text,
+                        maxLines: 1,
+                        decoration: InputDecoration(
+                          labelText: '密码',
+                          labelStyle:
+                              TextStyle(fontSize: 14, color: Colors.grey[600]),
+                          hintText: '请输入密码',
+                          hintStyle:
+                              TextStyle(fontSize: 12, color: Colors.grey[400]),
+                          helperText: '',
+                          contentPadding:
+                              EdgeInsets.only(top: 6.0, bottom: 10.0),
+                        ),
+                        autovalidate: autoValidate,
+                        obscureText: true,
+                        validator: _validatorPassword,
+                        onSaved: (value) {
+                          password = value;
+                        },
+                      ),
+                      IconButton(
+                          onPressed: _clearPassword,
+                          icon: Icon(
+                            Icons.cancel,
+                            color: Colors.grey[400],
+                          )),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 16.0,
+                  ),
+                  Container(
+                    width: double.infinity,
+                    child: RaisedButton(
+                        color: MaxColors.primarySwatch,
+                        disabledColor: loginColor,
+                        shape: RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(4.0))),
+                        child: Text(
+                          '登陆',
+                          style: TextStyle(color: Colors.white),
+                        ),
+                        elevation: 0.0,
+                        onPressed: () {
+                          _saveLoginInformation();
+                        }),
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
   }
-
-
 }

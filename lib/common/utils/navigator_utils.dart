@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_max/page/home_page.dart';
+import 'package:flutter_max/page/home/home_page.dart';
 import 'package:flutter_max/page/login_page.dart';
 import 'package:flutter_max/widget/max_web_view.dart';
 

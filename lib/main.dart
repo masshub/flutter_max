@@ -5,9 +5,10 @@ import 'package:flutter_max/common/localizations/max_localization_delegate.dart'
 import 'package:flutter_max/common/rerdux/maxBase.dart';
 import 'package:flutter_max/common/styles/max_colors.dart';
 import 'package:flutter_max/common/utils/common_utils.dart';
-import 'package:flutter_max/page/home_page.dart';
+import 'package:flutter_max/page/home/home_page.dart';
 import 'package:flutter_max/page/login_page.dart';
 import 'package:flutter_max/page/splash_page.dart';
+import 'package:flutter_max/widget/bottom_navigation_bar.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:redux/redux.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -38,19 +39,20 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Max',
           debugShowCheckedModeBanner: false,
           theme: store.state.themeData,
-          initialRoute: '/splash',
-          routes: {
-            '/': (context) {
-              return MAXLocalizations(
-                child: HomePage(title: 'Home'),
-              );
-            },
-            '/splash': (context) {
-              store.state.platformLocale = Localizations.localeOf(context);
-              return Splash();
-            },
-            '/login': (context) => Login(),
-          },
+          home: BottomNavigationBarWidget(),
+//          initialRoute: '/splash',
+//          routes: {
+//            '/': (context) {
+//              return MAXLocalizations(
+//                child: HomePage(title: 'Home'),
+//              );
+//            },
+//            '/splash': (context) {
+//              store.state.platformLocale = Localizations.localeOf(context);
+//              return Splash();
+//            },
+//            '/login': (context) => Login(),
+//          },
         );
       }),
     );

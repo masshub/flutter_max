@@ -16,13 +16,16 @@ class MaxWebView extends StatelessWidget {
 
   _webviewTitle() {
     if(url == null || url.length == 0) {
-      return Text(title);
+      return Text('$title');
     }
     control.url = url;
+
     return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
+        Text('$title',style: TextStyle(color: Colors.white),),
         Expanded(child: Container()),
-            MaxCommonOption(control),
+        MaxCommonOption(control),
       ],
     );
   }
@@ -40,7 +43,6 @@ class MaxWebView extends StatelessWidget {
       withLocalUrl: true,
       appBar: AppBar(
         title: _webviewTitle(),
-
       ),
 
     );

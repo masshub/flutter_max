@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_max/page/NewsDetailPage.dart';
+import 'package:flutter_max/page/home/NewsDetailPage.dart';
 import 'SlideViewIndicator.dart';
 
 class SlideView extends StatefulWidget {
@@ -65,13 +65,18 @@ class SlideViewState extends State<SlideView> with SingleTickerProviderStateMixi
           child: new Stack(
             children: <Widget>[
               new Image.network(imgUrl, width: MediaQuery.of(context).size.width, fit: BoxFit.contain),
-              new Container(
-                width: MediaQuery.of(context).size.width,
-                color: const Color(0x50000000),
-                child: new Padding(
-                  padding: const EdgeInsets.all(6.0),
-                  child: new Text(title, style: new TextStyle(color: Colors.white, fontSize: 15.0)),
-                )
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                    alignment: Alignment.bottomCenter,
+                    width: MediaQuery.of(context).size.width,
+                    height: 33.0,
+                    color: const Color(0x50000000),
+                    child: new Padding(
+                      padding: const EdgeInsets.all(6.0),
+                      child: new Text(title, style: new TextStyle(color: Colors.white, fontSize: 15.0)),
+                    )
+                ),
               )
             ],
           ),
