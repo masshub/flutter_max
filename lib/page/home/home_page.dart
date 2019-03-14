@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_max/common/utils/common_utils.dart';
 import 'package:flutter_max/common/utils/navigator_utils.dart';
 import 'package:flutter_max/page/demo/gridview/girdview_extend_demo.dart';
+import 'package:flutter_max/page/demo/gridview/gridview_home_demo.dart';
 import 'package:flutter_max/page/home/NewsListPage.dart';
 import 'package:flutter_max/page/drawer_page.dart';
 
@@ -54,7 +55,7 @@ class _HomePageState extends State<HomePage> {
         ),
         drawer: DrawerPage(),
         body: Container(
-          child: GridViewDemo(),
+          child: GridViewsDemo(),
         ),
         // This trailing comma makes auto-formatting nicer for build methods.
       ),
