@@ -7,6 +7,7 @@ import 'package:flutter_max/page/demo/gridview/gridview_count_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_custom_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_list_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_builder_demo.dart';
+import 'package:flutter_max/page/demo/list/listview_custom_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_horizontal_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_list_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_vertical_demo.dart';
@@ -95,6 +96,10 @@ class NavigatorUtils {
 
   static showListViewBuilder(BuildContext context) {
     return NavigatorRouter(context, ListViewBuilder());
+  }
+
+  static showListViewCustom(BuildContext context) {
+    return NavigatorRouter(context, ListViewCustom());
   }
 
 

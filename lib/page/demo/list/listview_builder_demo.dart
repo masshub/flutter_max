@@ -16,13 +16,13 @@ class ListViewBuilder extends StatelessWidget {
       child: ListTile(
         leading: Container(
           height: 66.0,
-          width: 66.0,
+          width: 76.0,
           decoration: BoxDecoration(
               image: DecorationImage(
                   image: AssetImage(
                     images[index].imageUrl,
                   ),
-                  fit: BoxFit.fill,),
+                  fit: BoxFit.cover,),
               borderRadius:BorderRadius.circular(4.0)),
         ),
         title: Text(
@@ -49,6 +49,7 @@ class ListViewBuilder extends StatelessWidget {
       body: ListView.builder(
         itemBuilder: _listItemBuilder,
         itemCount: images.length - 10,
+//        itemExtent: 80.0,
       ),
     );
   }

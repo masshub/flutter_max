@@ -30,7 +30,6 @@ class ListViewList extends StatelessWidget {
             height: 4.0,
             color: Color.fromRGBO(237, 237, 237, 1.0),
           ),
-
           ListTile(
             leading: Icon(
               Icons.list,
@@ -46,7 +45,6 @@ class ListViewList extends StatelessWidget {
             height: 4.0,
             color: Color.fromRGBO(237, 237, 237, 1.0),
           ),
-
           ListTile(
             leading: Icon(
               Icons.list,
@@ -62,8 +60,23 @@ class ListViewList extends StatelessWidget {
             height: 4.0,
             color: Color.fromRGBO(237, 237, 237, 1.0),
           ),
-        ],
+          ListTile(
+            leading: Icon(
+              Icons.list,
+              color: Colors.lightBlueAccent,
+            ),
+            trailing: Icon(Icons.chevron_right),
+            title: Text('ListViewCustom'),
+            onTap: () {
+              NavigatorUtils.showListViewCustom(context);
+            },
+          ),
+          Container(
+            height: 4.0,
+            color: Color.fromRGBO(237, 237, 237, 1.0),
+          ),
 
+        ],
       ),
     );
   }
