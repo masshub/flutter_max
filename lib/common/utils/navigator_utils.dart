@@ -1,5 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_max/page/demo/basic/basic_demo.dart';
+import 'package:flutter_max/page/demo/basic/column_demo.dart';
+import 'package:flutter_max/page/demo/basic/container_demo.dart';
+import 'package:flutter_max/page/demo/basic/row_demo.dart';
+import 'package:flutter_max/page/demo/drawer/drawer_demo.dart';
 import 'package:flutter_max/page/demo/gridview/girdview_extend_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_builder_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_null_demo.dart';
@@ -10,7 +15,16 @@ import 'package:flutter_max/page/demo/list/listview_builder_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_custom_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_horizontal_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_list_demo.dart';
+import 'package:flutter_max/page/demo/list/listview_separated_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_vertical_demo.dart';
+import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_demo.dart';
+import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_first.dart';
+import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_first_page.dart';
+import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_second.dart';
+import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_second_page.dart';
+import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_third_page.dart';
+import 'package:flutter_max/page/demo/tab/tab_bar_demo.dart';
+import 'package:flutter_max/page/demo/text/rich_text_demo.dart';
 import 'package:flutter_max/page/home/home_page.dart';
 import 'package:flutter_max/page/login_page.dart';
 import 'package:flutter_max/widget/max_web_view.dart';
@@ -32,7 +46,8 @@ class NavigatorUtils {
   }
 
   static NavigatorRouter(BuildContext context, Widget widget) {
-    return Navigator.push(context, MaterialPageRoute(builder: (context) => widget));
+    return Navigator.push(
+        context, MaterialPageRoute(builder: (context) => widget));
   }
 
   /// cupertino格式路由跳转
@@ -52,9 +67,8 @@ class NavigatorUtils {
   }
 
   /// webview
-  static Future showWebView(BuildContext context,String url,String title) {
-    return NavigatorRouter(context, MaxWebView(url,title));
-
+  static Future showWebView(BuildContext context, String url, String title) {
+    return NavigatorRouter(context, MaxWebView(url, title));
   }
 
   /***************** GridView ********************/
@@ -69,6 +83,7 @@ class NavigatorUtils {
   static showGridViewExtent(BuildContext context) {
     return NavigatorRouter(context, GridViewExtent());
   }
+
   static showGridViewCount(BuildContext context) {
     return NavigatorRouter(context, GridViewCount());
   }
@@ -90,6 +105,7 @@ class NavigatorUtils {
   static showListViewVertical(BuildContext context) {
     return NavigatorRouter(context, ListViewVertical());
   }
+
   static showListViewHorizontal(BuildContext context) {
     return NavigatorRouter(context, ListViewHorizontal());
   }
@@ -102,5 +118,67 @@ class NavigatorUtils {
     return NavigatorRouter(context, ListViewCustom());
   }
 
+  static showListViewSeparated(BuildContext context) {
+    return NavigatorRouter(context, ListViewSepatatedDemo());
+  }
+
+  /**************** TabBar ***************************/
+
+  static showTabBar(BuildContext context) {
+    return NavigatorRouter(context, TabBarDemo());
+  }
+
+  /**************** Drawer ***************************/
+
+  static showDrawer(BuildContext context) {
+    return NavigatorRouter(context, DrawerDemo());
+  }
+
+  /***************BottomNavigationBar ******************/
+
+  static showBottomNavigationBar(BuildContext context) {
+    return NavigatorRouter(context, BottomNavigationBarDemo());
+  }
+
+  static showBottomNavigationBarFirst(BuildContext context) {
+    return NavigatorRouter(context, BottomNavigationBarFirst());
+  }
+
+  static showBottomNavigationBarSecond(BuildContext context) {
+    return NavigatorRouter(context, BottomNavigationBarSecond());
+  }
+
+  static showBottomNavigationBarFirstPage(BuildContext context) {
+    return NavigatorRouter(context, FirstPage());
+  }
+
+  static showBottomNavigationBarSecondPage(BuildContext context) {
+    return NavigatorRouter(context, SecondPage());
+  }
+
+  static showBottomNavigationBarThirdPage(BuildContext context) {
+    return NavigatorRouter(context, ThirdPage());
+  }
+
+  /********************** RichText **************************/
+  static showRichText(BuildContext context) {
+    return NavigatorRouter(context, RichTextDemo());
+  }
+
+  /********************** basic ***********************/
+  static showBasic(BuildContext context) {
+    return NavigatorRouter(context, BasicDemo());
+  }
+
+  static showContainer(BuildContext context) {
+    return NavigatorRouter(context, Containers());
+  }
+
+  static showRow(BuildContext context) {
+    return NavigatorRouter(context, RowDemo());
+  }
+  static showColume(BuildContext context) {
+    return NavigatorRouter(context, ColumnDemo());
+  }
 
 }

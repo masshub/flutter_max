@@ -48,7 +48,6 @@ class GridViewsDemo extends StatelessWidget {
               )),
           onTap: () {
             NavigatorUtils.showGridViewDemoList(context);
-
           },
         ),
         InkWell(
@@ -99,11 +98,13 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Demo',
+                  'TabBar',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
-          onTap: () {},
+          onTap: () {
+            NavigatorUtils.showTabBar(context);
+          },
         ),
         InkWell(
           child: Container(
@@ -125,11 +126,13 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Demo',
+                  'Drawer',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
-          onTap: () {},
+          onTap: () {
+            NavigatorUtils.showDrawer(context);
+          },
         ),
         InkWell(
           child: Container(
@@ -151,11 +154,14 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Demo',
+                  'BottomNavigationBar',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
+                  textAlign: TextAlign.center,
                 ),
               )),
-          onTap: () {},
+          onTap: () {
+            NavigatorUtils.showBottomNavigationBar(context);
+          },
         ),
         InkWell(
           child: Container(
@@ -177,11 +183,14 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Demo',
+                  'RichText',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
-          onTap: () {},
+          onTap: () {
+            NavigatorUtils.showRichText(context);
+
+          },
         ),
         InkWell(
           child: Container(
@@ -203,11 +212,13 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Demo',
+                  'Basic',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
-          onTap: () {},
+          onTap: () {
+            NavigatorUtils.showBasic(context);
+          },
         ),
         InkWell(
           child: Container(
