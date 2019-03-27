@@ -15,27 +15,30 @@ class MaxWebView extends StatelessWidget {
   MaxWebView(this.url, this.title);
 
   _webviewTitle() {
-    if(url == null || url.length == 0) {
+    if (url == null || url.length == 0) {
       return Text('$title');
     }
     control.url = url;
 
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Text('$title',style: TextStyle(color: Colors.white),),
+        Align(
+          alignment: Alignment.center,
+          child: Text(
+            '$title',
+            style: TextStyle(color: Colors.white),
+          ),
+        ),
         Expanded(child: Container()),
         MaxCommonOption(control),
       ],
     );
   }
 
-
-
-
   @override
   Widget build(BuildContext context) {
-
     return WebviewScaffold(
       withJavascript: true,
       url: url,
@@ -44,11 +47,6 @@ class MaxWebView extends StatelessWidget {
       appBar: AppBar(
         title: _webviewTitle(),
       ),
-
     );
   }
-
-
-
-
 }

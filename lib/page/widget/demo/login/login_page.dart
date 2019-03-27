@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_max/common/styles/max_colors.dart';
+import 'package:flutter_max/common/utils/navigator_utils.dart';
 import 'package:flutter_max/widget/bottom_circle_cliper.dart';
 import 'package:flutter_max/widget/circle_cliper.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -83,8 +84,9 @@ class _LoginState extends State<Login> {
       loginFormKey.currentState.save();
       debugPrint('account : $account');
       debugPrint('password : $password');
-      if (account == 'max' && password == '123456') {
+      if (account.trim() == 'max' && password.trim() == '123456') {
         Timer(Duration(seconds: 2), _event); // 关闭加载框
+
       } else {
         Timer(Duration(seconds: 2), _error); // 关闭加载框
 
@@ -103,7 +105,8 @@ class _LoginState extends State<Login> {
 
   void _event() {
     Navigator.pop(context);
-    Navigator.pushNamed(context, '/');
+    Navigator.pop(context);
+//    Navigator.pushNamed(context, '/');
   }
 
   TextEditingController _accountController = TextEditingController();

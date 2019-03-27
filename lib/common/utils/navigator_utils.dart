@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_max/page/demo/animation/animation_demo.dart';
 import 'package:flutter_max/page/demo/basic/basic_demo.dart';
 import 'package:flutter_max/page/demo/basic/column_demo.dart';
 import 'package:flutter_max/page/demo/basic/container_demo.dart';
 import 'package:flutter_max/page/demo/basic/row_demo.dart';
+import 'package:flutter_max/page/demo/bloc/bloc_demo.dart';
 import 'package:flutter_max/page/demo/drawer/drawer_demo.dart';
 import 'package:flutter_max/page/demo/gridview/girdview_extend_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_builder_demo.dart';
@@ -11,6 +13,7 @@ import 'package:flutter_max/page/demo/gridview/gridview_null_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_count_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_custom_demo.dart';
 import 'package:flutter_max/page/demo/gridview/gridview_list_demo.dart';
+import 'package:flutter_max/page/demo/http/http_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_builder_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_custom_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_horizontal_demo.dart';
@@ -26,7 +29,13 @@ import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_third
 import 'package:flutter_max/page/demo/tab/tab_bar_demo.dart';
 import 'package:flutter_max/page/demo/text/rich_text_demo.dart';
 import 'package:flutter_max/page/home/home_page.dart';
-import 'package:flutter_max/page/login_page.dart';
+import 'package:flutter_max/page/widget/demo/dialog/dialog_toast_demo.dart';
+import 'package:flutter_max/page/widget/demo/login/login_page.dart';
+import 'package:flutter_max/page/widget/demo/refresh/refresh_load_page.dart';
+import 'package:flutter_max/page/widget/demo/router/first_page.dart';
+import 'package:flutter_max/page/widget/demo/search/search_demo.dart';
+import 'package:flutter_max/page/widget/demo/sliver/sliver_demo.dart';
+import 'package:flutter_max/page/widget/demo/splash/splash_page.dart';
 import 'package:flutter_max/widget/max_web_view.dart';
 
 ///
@@ -63,12 +72,17 @@ class NavigatorUtils {
 
   /// 登陆页
   static showLogin(BuildContext context) {
-    Navigator.pushReplacementNamed(context, Login.mName);
+    NavigatorRouter(context, Login());
   }
 
   /// webview
   static Future showWebView(BuildContext context, String url, String title) {
     return NavigatorRouter(context, MaxWebView(url, title));
+  }
+
+  /// 欢迎界面
+  static showSplash(BuildContext context) {
+    return NavigatorRouter(context, Splash());
   }
 
   /***************** GridView ********************/
@@ -180,5 +194,40 @@ class NavigatorUtils {
   static showColume(BuildContext context) {
     return NavigatorRouter(context, ColumnDemo());
   }
+
+
+  static showBloc(BuildContext context) {
+    return NavigatorRouter(context, BlocDemo());
+  }
+
+  static showHttp(BuildContext context){
+    return NavigatorRouter(context, HttpDemo());
+  }
+
+  static showAnimation(BuildContext context) {
+    return NavigatorRouter(context, AnimationDemo());
+  }
+
+  static showSearch(BuildContext context) {
+    return NavigatorRouter(context, SearchDemo());
+  }
+
+  static showRoute(BuildContext context) {
+    return NavigatorRouter(context, Firstpage());
+  }
+
+  static showLoadAndRefresh(BuildContext context) {
+    return NavigatorRouter(context, RefreshAndLoad());
+  }
+
+  static showSliver(BuildContext context) {
+    return NavigatorRouter(context, SliverDemo());
+  }
+
+  static showDialogAndToast(BuildContext context) {
+    return NavigatorRouter(context, DialogAndToastDemo());
+  }
+
+
 
 }

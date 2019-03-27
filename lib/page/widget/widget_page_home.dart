@@ -7,7 +7,7 @@ import 'package:flutter_max/common/utils/navigator_utils.dart';
  * Describe:
  */
 
-class GridViewsDemo extends StatelessWidget {
+class WidgetPageHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     /**
@@ -30,7 +30,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[00].imageUrl,
+                      images[20].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -42,12 +42,12 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'GridView',
+                  'Login',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showGridViewDemoList(context);
+            NavigatorUtils.showLogin(context);
           },
         ),
         InkWell(
@@ -58,7 +58,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[01].imageUrl,
+                      images[11].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -70,12 +70,12 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'ListView',
+                  'WebView',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showListViewList(context);
+            NavigatorUtils.showWebView(context, 'https://www.baidu.com/', '百度');
           },
         ),
         InkWell(
@@ -86,7 +86,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[02].imageUrl,
+                      images[22].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -98,12 +98,16 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'TabBar',
-                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                  'Splash&高斯模糊&贝塞尔曲线',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 22.0,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showTabBar(context);
+            NavigatorUtils.showSplash(context);
           },
         ),
         InkWell(
@@ -114,7 +118,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[03].imageUrl,
+                      images[23].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -126,12 +130,12 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Drawer',
+                  'Search',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showDrawer(context);
+            NavigatorUtils.showSearch(context);
           },
         ),
         InkWell(
@@ -142,7 +146,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[04].imageUrl,
+                      images[24].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -154,13 +158,13 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'BottomNavigationBar',
+                  'Route',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                   textAlign: TextAlign.center,
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showBottomNavigationBar(context);
+            NavigatorUtils.showRoute(context);
           },
         ),
         InkWell(
@@ -171,7 +175,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[05].imageUrl,
+                      images[25].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -183,12 +187,13 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'RichText',
+                  'ReFresh&Loading',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
+                  textAlign: TextAlign.center,
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showRichText(context);
+            NavigatorUtils.showLoadAndRefresh(context);
           },
         ),
         InkWell(
@@ -199,7 +204,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[06].imageUrl,
+                      images[26].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -211,12 +216,12 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Basic',
+                  'Sliver',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showBasic(context);
+            NavigatorUtils.showSliver(context);
           },
         ),
         InkWell(
@@ -227,7 +232,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[07].imageUrl,
+                      images[27].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -239,12 +244,13 @@ class GridViewsDemo extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Bloc',
+                  'Dialog&Toast',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
+                  textAlign: TextAlign.center,
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showBloc(context);
+            NavigatorUtils.showDialogAndToast(context);
           },
         ),
         InkWell(
@@ -255,7 +261,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[08].imageUrl,
+                      images[28].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -283,7 +289,7 @@ class GridViewsDemo extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.0),
                 image: DecorationImage(
                     image: AssetImage(
-                      images[09].imageUrl,
+                      images[29].imageUrl,
                     ),
                     fit: BoxFit.cover),
               ),
@@ -302,6 +308,58 @@ class GridViewsDemo extends StatelessWidget {
           onTap: () {
             NavigatorUtils.showAnimation(context);
           },
+        ),
+        InkWell(
+          child: Container(
+              margin: EdgeInsets.all(6.0),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                image: DecorationImage(
+                    image: AssetImage(
+                      images[30].imageUrl,
+                    ),
+                    fit: BoxFit.cover),
+              ),
+              child: Container(
+                height: double.infinity,
+                width: double.infinity,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(8.0)),
+                child: Text(
+                  'Demo',
+                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                ),
+              )),
+          onTap: () {},
+        ),
+        InkWell(
+          child: Container(
+              margin: EdgeInsets.all(6.0),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                image: DecorationImage(
+                    image: AssetImage(
+                      images[31].imageUrl,
+                    ),
+                    fit: BoxFit.cover),
+              ),
+              child: Container(
+                height: double.infinity,
+                width: double.infinity,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                    color: Colors.black.withOpacity(0.5),
+                    borderRadius: BorderRadius.circular(8.0)),
+                child: Text(
+                  'Demo',
+                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                ),
+              )),
+          onTap: () {},
         ),
       ],
     );
