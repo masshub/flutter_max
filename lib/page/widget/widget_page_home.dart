@@ -273,12 +273,13 @@ class WidgetPageHome extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Http',
-                  style: TextStyle(color: Colors.white, fontSize: 22.0),
+                  'RecordableListView',
+                  style: TextStyle(color: Colors.white, fontSize: 22.0,),
+                  textAlign: TextAlign.center,
                 ),
               )),
           onTap: () {
-            NavigatorUtils.showHttp(context);
+            NavigatorUtils.showRecordableListView(context);
           },
         ),
         InkWell(
@@ -329,11 +330,13 @@ class WidgetPageHome extends StatelessWidget {
                     color: Colors.black.withOpacity(0.5),
                     borderRadius: BorderRadius.circular(8.0)),
                 child: Text(
-                  'Demo',
+                  'Camera',
                   style: TextStyle(color: Colors.white, fontSize: 22.0),
                 ),
               )),
-          onTap: () {},
+          onTap: () {
+            NavigatorUtils.showCameraDemo(context);
+          },
         ),
         InkWell(
           child: Container(

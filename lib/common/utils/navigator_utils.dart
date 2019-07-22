@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_max/page/demo/animation/PhotoHero.dart';
 import 'package:flutter_max/page/demo/animation/animation_demo.dart';
 import 'package:flutter_max/page/demo/basic/basic_demo.dart';
 import 'package:flutter_max/page/demo/basic/column_demo.dart';
 import 'package:flutter_max/page/demo/basic/container_demo.dart';
 import 'package:flutter_max/page/demo/basic/row_demo.dart';
+import 'package:flutter_max/page/demo/basic/widget_demo.dart';
 import 'package:flutter_max/page/demo/bloc/bloc_demo.dart';
 import 'package:flutter_max/page/demo/drawer/drawer_demo.dart';
 import 'package:flutter_max/page/demo/gridview/girdview_extend_demo.dart';
@@ -29,8 +31,10 @@ import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_third
 import 'package:flutter_max/page/demo/tab/tab_bar_demo.dart';
 import 'package:flutter_max/page/demo/text/rich_text_demo.dart';
 import 'package:flutter_max/page/home/home_page.dart';
+import 'package:flutter_max/page/widget/demo/camera/camera_demo.dart';
 import 'package:flutter_max/page/widget/demo/dialog/dialog_toast_demo.dart';
 import 'package:flutter_max/page/widget/demo/login/login_page.dart';
+import 'package:flutter_max/page/widget/demo/recordable/recordable_listview_demo.dart';
 import 'package:flutter_max/page/widget/demo/refresh/refresh_load_page.dart';
 import 'package:flutter_max/page/widget/demo/router/first_page.dart';
 import 'package:flutter_max/page/widget/demo/search/search_demo.dart';
@@ -228,6 +232,19 @@ class NavigatorUtils {
     return NavigatorRouter(context, DialogAndToastDemo());
   }
 
+  static showRecordableListView(BuildContext context){
+    return NavigatorRouter(context, RecordableListViewDemo());
+  }
 
+  static showWidgetDemo(BuildContext context){
+    return NavigatorRouter(context, WidgetDemo());
+  }
+
+  static showCameraDemo(BuildContext context){
+    return NavigatorRouter(context, CameraDemo());
+  }
+  static showPhotoHero(BuildContext context){
+    return NavigatorRouter(context, HeroAnimation());
+  }
 
 }

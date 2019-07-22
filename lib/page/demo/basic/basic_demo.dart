@@ -58,8 +58,18 @@ class BasicDemo extends StatelessWidget {
             },
           ),
           Divider(
-            height: 4.0,
             color: Colors.red,
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.add_shopping_cart,
+              color: Colors.lightBlueAccent,
+            ),
+            title: Text('Widget'),
+            trailing: Icon(Icons.chevron_right),
+            onTap: () {
+              NavigatorUtils.showWidgetDemo(context);
+            },
           ),
         ],
       ),
