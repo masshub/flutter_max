@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_max/page/demo/animation/PhotoHero.dart';
 import 'package:flutter_max/page/demo/animation/animation_demo.dart';
+import 'package:flutter_max/page/demo/animation/distance_ntification.dart';
 import 'package:flutter_max/page/demo/basic/basic_demo.dart';
 import 'package:flutter_max/page/demo/basic/column_demo.dart';
 import 'package:flutter_max/page/demo/basic/container_demo.dart';
@@ -18,8 +19,10 @@ import 'package:flutter_max/page/demo/gridview/gridview_list_demo.dart';
 import 'package:flutter_max/page/demo/http/http_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_builder_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_custom_demo.dart';
+import 'package:flutter_max/page/demo/list/listview_expansion_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_horizontal_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_list_demo.dart';
+import 'package:flutter_max/page/demo/list/listview_refresh_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_separated_demo.dart';
 import 'package:flutter_max/page/demo/list/listview_vertical_demo.dart';
 import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_demo.dart';
@@ -246,5 +249,16 @@ class NavigatorUtils {
   static showPhotoHero(BuildContext context){
     return NavigatorRouter(context, HeroAnimation());
   }
+
+  static showDistanceNotification(BuildContext context){
+    return  NavigatorRouter(context, DistanceNotification());
+  }
+  static showListViewExpansion(BuildContext context){
+    return  NavigatorRouter(context, ListViewExpansionDemo());
+  }
+  static showListViewRefresh(BuildContext context){
+    return  NavigatorRouter(context, ListViewRefresh());
+  }
+
 
 }

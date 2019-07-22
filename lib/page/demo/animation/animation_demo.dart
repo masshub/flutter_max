@@ -74,7 +74,10 @@ class _AnimationDemoState extends State<AnimationDemo>
 //          PhotoHero(),
           FlatButton(onPressed: (){
             NavigatorUtils.showPhotoHero(context);
-          }, child: Text("PhotoHero"))
+          }, child: Text("PhotoHero")),
+          FlatButton(onPressed: (){
+            NavigatorUtils.showDistanceNotification(context);
+          }, child: Text("DistanceNotification"))
         ],
       ),
     );

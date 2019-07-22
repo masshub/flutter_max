@@ -14,6 +14,8 @@ class HttpDemo extends StatelessWidget {
         title: Text('Http'),
         centerTitle: true,
         elevation: 0.0,
+        automaticallyImplyLeading: false,
+
       ),
       body: HttpDemoHome(),
     );

@@ -70,7 +70,7 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(
-              child: Text('加载中........... '),
+              child: Text('加载中...... '),
             );
           }
           return ListView(
@@ -90,15 +90,12 @@ class _HttpDemoHomeState extends State<HttpDemoHome> {
 
 class Post {
   final String title;
-
   final String description;
-
   final int id;
   final String author;
   final String imageUrl;
 
   Post(this.title, this.description, this.imageUrl, this.id, this.author);
-
   Post.fromJson(Map json)
       : title = json['title'],
         description = json['description'],

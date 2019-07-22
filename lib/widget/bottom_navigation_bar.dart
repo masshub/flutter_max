@@ -43,7 +43,7 @@ class _BottomNavigationBarWidgetState extends State<BottomNavigationBarWidget> {
               currentIndex = index;
             });
           },
-          type: BottomNavigationBarType.shifting,
+          type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
                 icon: Icon(
