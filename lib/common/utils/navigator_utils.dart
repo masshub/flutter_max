@@ -34,6 +34,7 @@ import 'package:flutter_max/page/demo/navigation_bar/bottom_navigation_bar_third
 import 'package:flutter_max/page/demo/tab/tab_bar_demo.dart';
 import 'package:flutter_max/page/demo/text/rich_text_demo.dart';
 import 'package:flutter_max/page/home/home_page.dart';
+import 'package:flutter_max/page/others/trip_page.dart';
 import 'package:flutter_max/page/widget/demo/camera/camera_demo.dart';
 import 'package:flutter_max/page/widget/demo/dialog/dialog_toast_demo.dart';
 import 'package:flutter_max/page/widget/demo/login/login_page.dart';
@@ -258,6 +259,10 @@ class NavigatorUtils {
   }
   static showListViewRefresh(BuildContext context){
     return  NavigatorRouter(context, ListViewRefresh());
+  }
+
+  static showTripPage(BuildContext context){
+    return NavigatorRouter(context, TripPage());
   }
 
 
